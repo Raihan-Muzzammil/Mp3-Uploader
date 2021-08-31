@@ -1,9 +1,11 @@
 from os import path
 from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request
+from flask_autoindex import AutoIndex
+
 
 app = Flask(__name__)
-
+browse = "C:\\Users\\raiha\\PycharmProjects\\Mp3 Uploader\\static\\uploads"
 
 @app.route("/")
 def home():
@@ -18,14 +20,10 @@ def audio():
 @app.route("/upload", methods=["POST"])
 def generate():
     file = request.files['audio']
-    filename = secure_filename(file.filename)
+    filename = secure_filename(file.filename + ".mp3")
     file.save(path.join("C:\\Users\\raiha\\PycharmProjects\\Mp3 Uploader\\static\\uploads", filename))
     return render_template("Download.html")
 
-
-@app.route("/viewer")
-def change():
-    return
 
 
 @app.route("/random")
