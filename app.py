@@ -20,7 +20,7 @@ def audio():
 @app.route("/upload", methods=["POST"])
 def generate():
     file = request.files['audio']
-    filename = secure_filename(file.filename + ".mp3")
+    filename = secure_filename(file.filename)
     file.save(path.join("C:\\Users\\raiha\\PycharmProjects\\Mp3 Uploader\\static\\uploads", filename))
     return render_template("Download.html")
 
