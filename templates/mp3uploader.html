@@ -2,10 +2,13 @@
 {% block title %}MP3 Uploader{% endblock %}
 {% block  content  %}
     <!--suppress HtmlUnknownTarget, HtmlDeprecatedAttribute -->
+
     <h2 align="center">MP3 Uploader</h2>
     <form action = "/upload" method="post" enctype = "multipart/form-data">
         <p align="center"> Choose your .mp3 file to upload (NOTE: must be under 20 MB) : </p>
-        <p align="center"><input type="file" name="audio" accept=".mp3"  required="required"/></p>
+        <p align="center"><input  type="file" name="audio" id="file" accept=".mp3" onchange="filesz()" required="required"/></p>
+        <p id="size"></p>
         <p align="center"><input type="submit" value="Upload"/></p>
     </form>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/files.js') }}"></script>
 {% endblock %}
