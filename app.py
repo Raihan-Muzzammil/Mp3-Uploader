@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 browse = "C:\\Users\\raiha\\PycharmProjects\\Mp3 Uploader\\static\\uploads"
 
-app.config['MAX_CONTENT_LENGTH'] = 20000
+app.config['MAX_CONTENT_LENGTH'] = 20 * 1000 * 1000
 
 @app.route("/")
 def home():
